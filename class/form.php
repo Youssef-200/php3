@@ -3,11 +3,11 @@ class form{
 
    
 
-    function input($type,$name,$id,$class){
+    function input($type,$name,$id,$class,$b=" "){
         return '
                 <div id="'.$id.'" class="'.$class.'">
                 <label  for="input" class="form-label">'.$name.'</label>
-                <input  type="'.$type.'" name="'.$name.'"   class="form-control" >
+                <input accept="'. $b .'"  type="'.$type.'" name="'.$name.'"   class="form-control" >
                 </div>';
     }
     function submit($name,$value,$id,$class){

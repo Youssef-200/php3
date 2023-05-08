@@ -14,7 +14,7 @@ class inscriptionmodule{
        private $cv;
        private $log;
        private $mdp;
-       private $conn;
+       public $conn;
         /**
      * __construct
      *
@@ -32,13 +32,13 @@ class inscriptionmodule{
      * @return void
      */
 
-    function __construct($nom,$prenom,$email,$naissance,$diplome,$niveau,$etablissement,$photo,$cv,$log,$mdp){
+    function __construct($nom,$prenom,$email,$naissance,$diplome,$etablissement,$photo,$cv,$log,$mdp){
         $this->nom=$nom;
         $this->prenom=$prenom;
         $this->email=$email;
         $this->naissance=$naissance;
         $this->dip=$diplome;
-        $this->niveau=$niveau;
+        
         $this->etab=$etablissement;
         $this->photo=$photo;
         $this->cv=$cv;
@@ -48,21 +48,8 @@ class inscriptionmodule{
 
     }
     function insert($table){
-        $this->conn->Insert($table,'nom,prenom,email,naissance,diplome,niveau,etbalissement,photo,cv,log,mdp','"'.$this->nom.'","'.$this->prenom.'","'.$this->email.'","'.$this->naissance.'","'.$this->dip.'","'.$this->niveau.'","'.$this->etab.'","'.$this->photo.'","'.$this->cv.'","'.$this->log.'","'.$this->mdp.'"');
+        $this->conn->Insert($table,'nom,prenom,email,naissance,diplome,etbalissement,photo,cv,log,mdp','"'.$this->nom.'","'.$this->prenom.'","'.$this->email.'","'.$this->naissance.'","'.$this->dip.'","'.$this->etab.'","'.$this->photo.'","'.$this->cv.'","'.$this->log.'","'.$this->mdp.'"');
     }
-
-    function rename_uplod($file,$nom,$prenom){
-
-        $infosfichier = pathinfo($file);
-    
-        $extension_upload = $infosfichier['extension'];
-        
-        $new_nom = ($extension_upload == 'pdf') ? $nom.' '.$prenom.'.pdf' : $nom.' '.$prenom.'.jpg';
-    
-        return $new_nom;
-    
-    }
-
     
 
 }
