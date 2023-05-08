@@ -45,6 +45,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $insc->insert("etud3a");
 
         move_uploaded_file($photo["tmp_name"], '../src/img/'.$photo['name'].'');
+
+        
         
         
     }elseif($op=="Bac+3"){
